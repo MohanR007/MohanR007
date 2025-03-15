@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Mohan R</h1>
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=mohanr007&label=Profile%20Views&color=blueviolet&style=flat" alt="Profile Views" />
+  ![Unique Visitors](https://img.shields.io/badge/Unique%20Visitors-0-blueviolet)
 </p>
 <h3 align="left">🚀 Aspiring Data Analyst & Data Scientist with a strong passion for data-driven insights, machine learning, and analytics. I enjoy working with data to uncover meaningful patterns and drive informed decisions. Skilled in Python, SQL, and data visualization, I am continuously exploring advanced analytics and AI. Alongside my data journey, I also have a keen interest in web development, leveraging full-stack technologies to create interactive and insightful applications. Always eager to learn, collaborate, and innovate!</h3>
 
