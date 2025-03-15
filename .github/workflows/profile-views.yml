@@ -26,15 +26,15 @@ jobs:
       - name: Update views
         run: node update-views.js
 
-      - name: Update README
+      - name: Update README with latest count
         run: |
           VIEWS=$(jq '.views' profile-views.json)
-          sed -i "s/!\[Unique Visitors\](.*)/![Unique Visitors](https:\/\/img.shields.io\/badge\/Unique%20Visitors-${VIEWS}-blueviolet)/" README.md
+          sed -i "s/Unique%20Visitors-[0-9]*/Unique%20Visitors-${VIEWS}/g" README.md
 
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add profile-views.json README.md
-          git commit -m "Updated profile views in README" || echo "No changes to commit"
+          git commit -m "Updated profile views count in README" || echo "No changes to commit"
           git push
