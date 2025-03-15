@@ -1,26 +1,19 @@
-const fs = require("fs");
-const axios = require("axios");
-
-const FILE_PATH = "profile-views.json";
-const IP_API = "https://api64.ipify.org?format=json";
+import fs from 'fs';
 
 async function updateViews() {
-  try {
-    const response = await axios.get(IP_API);
-    const userIP = response.data.ip;
-
-    let data = JSON.parse(fs.readFileSync(FILE_PATH, "utf8"));
-
-    if (!data.uniqueVisitors.includes(userIP)) {
-      data.uniqueVisitors.push(userIP);
-      data.views += 1;
+    const username = "MohanR007"; // Change to your GitHub username
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const data = await response.json();
+    
+    let views = 0;
+    if (fs.existsSync("profile-views.json")) {
+        const fileData = JSON.parse(fs.readFileSync("profile-views.json", "utf-8"));
+        views = fileData.views || 0;
     }
 
-    fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2));
-    console.log("Updated Profile Views:", data.views);
-  } catch (error) {
-    console.error("Error updating views:", error);
-  }
+    views += 1;
+    fs.writeFileSync("profile-views.json", JSON.stringify({ views }, null, 2));
+    console.log(`Updated profile views: ${views}`);
 }
 
-updateViews();
+updateViews().catch(console.error);
