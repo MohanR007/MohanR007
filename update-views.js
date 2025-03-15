@@ -17,8 +17,7 @@ async function updateViews() {
     }
 
     fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2));
-
-    console.log("Profile views updated:", data.views);
+    console.log("Updated Profile Views:", data.views);
   } catch (error) {
     console.error("Error updating views:", error);
   }
